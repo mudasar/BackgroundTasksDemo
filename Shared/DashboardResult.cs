@@ -1,6 +1,6 @@
 ﻿namespace Shared
 {
-    internal class DashboardResult
+    public class DashboardResult
     {
         public int AverageSale { get; set; }
         public DateTime LastUpdated { get; set; }

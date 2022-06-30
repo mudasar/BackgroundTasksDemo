@@ -1,9 +1,18 @@
+using AIHostedService;
+using Shared;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.services.AddHostedService<DashboardCacheRefresherHostedService>();
+builder.Services.AddHostedService<DashboardCacheRefresherHostedService>();
+builder.Services.AddDemoServices();
 
+builder.Services.AddControllers();
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
 
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapDefaultControllerRoute();
+});
 app.Run();
